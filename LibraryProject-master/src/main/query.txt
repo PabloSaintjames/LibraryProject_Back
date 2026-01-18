@@ -1,0 +1,17 @@
+CREATE TABLE articulos (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    tipo TEXT NOT NULL,            -- Discriminador: LIBRO / CD
+    titulo TEXT NOT NULL,
+    alquilado BOOLEAN NOT NULL DEFAULT 0,
+
+    -- Campos específicos de subclases
+    isbn TEXT,                     -- solo LIBRO
+    estilo_musical TEXT            -- solo CD
+);
+
+
+
+INSERT INTO articulos (tipo, titulo, alquilado, isbn)
+VALUES
+('LIBRO', 'Clean Code', 0, '9780132350884'),
+('LIBRO', 'Effective Java', 0, '9780134685991');
